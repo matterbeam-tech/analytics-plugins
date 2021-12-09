@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "name": "@matterbeam/analytics-plugins",
+  "license": "MIT",
+  "repository": "matterbeam/analytics-plugins",
+  "scripts": {
+    "build": "lerna run build",
+    "lerna": "lerna",
+    "lint": "lerna run lint -- --fix",
+    "prepare": "husky install",
+    "prepublish": "lerna run prepublish",
+    "start": "lerna run start --stream --parallel",
+    "test": "lerna run test --"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lerna": "^4.0.0",
+    "lint-staged": "^12.1.2",
+    "prettier-package-json": "^2.6.0",
+    "tsdx": "^0.14.1",
+    "typescript": "^4.5.2"
+  },
+  "lint-staged": {
+    "package.json": [
+      "prettier-package-json --write"
+    ],
+    "**/*.{ts,tsx,md,mdx,js,jsx}": [
+      "prettier --write",
+      "tsdx lint"
+    ]
+  }
+}

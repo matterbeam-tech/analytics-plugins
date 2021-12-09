@@ -1,0 +1,30 @@
+{
+  "name": "@matterbeam/analytics-plugin-pendo",
+  "version": "0.0.1",
+  "description": "Pendo Analytics plugin",
+  "license": "MIT",
+  "repository": "matterbeam/analytics-plugins",
+  "main": "dist/index.js",
+  "module": "dist/utils.esm.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "lint": "tsdx lint",
+    "prepublish": "npm run build",
+    "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",
+    "test": "tsdx test"
+  },
+  "typings": "dist/index.d.ts",
+  "dependencies": {
+    "analytics": "^0.7.18"
+  },
+  "keywords": [
+    "analytics",
+    "pendo"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

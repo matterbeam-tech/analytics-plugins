@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.build.json",
+  "include": ["packages", "types"],
+  "compilerOptions": {
+    "allowJs": false,
+    "baseUrl": ".",
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "paths": {
+      "@matterbeam/analytics-plugin-matterbeam": ["packages/matterbeam/src"],
+      "@matterbeam/analytics-plugin-pendo": ["packages/pendo/src"],
+      "$test/*": ["test/*"]
+    }
+  }
+}
