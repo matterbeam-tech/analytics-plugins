@@ -1,6 +1,6 @@
 {
   "name": "@matterbeam/analytics-plugin-pendo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Pendo Analytics plugin",
   "license": "MIT",
   "repository": "matterbeam/analytics-plugins",
@@ -21,7 +21,6 @@
     "@segment/load-script": "^1.0.1",
     "analytics": "^0.7.18"
   },
-  "devDependencies": {},
   "keywords": [
     "analytics",
     "pendo"
