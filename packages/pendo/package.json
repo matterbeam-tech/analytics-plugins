@@ -18,8 +18,10 @@
   },
   "typings": "dist/index.d.ts",
   "dependencies": {
+    "@segment/load-script": "^1.0.1",
     "analytics": "^0.7.18"
   },
+  "devDependencies": {},
   "keywords": [
     "analytics",
     "pendo"
