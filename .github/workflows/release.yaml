@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+  workflow_run:
+    workflows: ["Validate"]
+    branches: [main]
+    types:
+      - completed
 
 permissions:
   contents: write
@@ -43,12 +48,7 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # - name: Publish
-      #   run: lerna publish --yes
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publish Dry Run
-        run: yarn publish:dry-run --yes
+      - name: Publish
+        run: lerna publish --yes
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
