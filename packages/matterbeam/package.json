@@ -13,6 +13,7 @@
     "build": "tsdx build --tsconfig tsconfig.build.json",
     "lint": "tsdx lint",
     "prepublish": "npm run build",
+    "publish:dry-run": "yarn lerna publish --skip-npm --skip-git",
     "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",
     "test": "tsdx test"
   },

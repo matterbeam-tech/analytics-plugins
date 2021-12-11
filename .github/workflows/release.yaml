@@ -43,9 +43,12 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish
-        run: lerna publish --yes
+      # - name: Publish
+      #   run: lerna publish --yes
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish Dry Run
+        run: yarn publish:dry-run --yes
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
