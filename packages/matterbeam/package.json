@@ -1,5 +1,5 @@
 {
-  "name": "@matterbeam/analytics-plugin",
+  "name": "@matterbeam/analytics-plugin-matterbeam",
   "version": "0.0.1",
   "description": "Matterbeam Analytics plugin",
   "license": "MIT",
