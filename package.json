@@ -39,7 +39,7 @@
     "package.json": [
       "prettier-package-json --write"
     ],
-    "**/*.{ts,tsx,md,mdx,js,jsx}": [
+    "**/*.{ts,tsx,js,jsx}": [
       "prettier --write",
       "tsdx lint"
     ]
