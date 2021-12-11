@@ -1,0 +1,5 @@
+name: Validate
+
+on: [push]
+
+jobs:

@@ -9,6 +9,7 @@
     "lint": "lerna run lint -- --fix",
     "prepare": "husky install",
     "prepublish": "lerna run prepublish",
+    "publish:dry-run": "yarn lerna publish --skip-npm --skip-git",
     "start": "lerna run start --stream --parallel",
     "test": "lerna run test --"
   },

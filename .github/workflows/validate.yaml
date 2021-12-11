@@ -3,32 +3,59 @@ name: Validate
 on: [push]
 
 jobs:
-  build:
-    name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v4
 
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Use Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.13.1
+      - name: Install deps and build (with cache)
+        uses: bahmutov/npm-install@v1
+      - name: Lint
+        run: yarn lint
+
+  test:
+    name: Test on Node ${{ matrix.node }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         node: ["14.x"]
         os: [ubuntu-latest, windows-latest, macOS-latest]
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
-
-      - name: Lint
-        run: yarn lint
-
       - name: Test
         run: yarn test --ci --coverage --maxWorkers=2
 
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Use Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.13.1
+      - name: Install deps and build (with cache)
+        uses: bahmutov/npm-install@v1
       - name: Build
         run: yarn build

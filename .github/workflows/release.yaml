@@ -11,7 +11,7 @@ permissions:
   packages: write
 
 jobs:
-  size:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
